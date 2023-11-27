@@ -4,13 +4,14 @@ import { GeistMono } from "geist/font/mono";
 import "@/styles/globals.css";
 
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/config/site";
 import Providers from "@/app/providers";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Discuss",
-  description: "a simple Reddit clone Next.js 14 + Prisma + NextAuth + Zod",
+  title: siteConfig.name,
+  description: siteConfig.description,
   keywords: [
     "Next.js",
     "React",
@@ -22,6 +23,7 @@ export const metadata: Metadata = {
     "Prisma ORM",
     "Zod",
     "NextAuth",
+    "PlanetScale",
   ],
   authors: [
     {
@@ -30,6 +32,19 @@ export const metadata: Metadata = {
     },
   ],
   creator: "Yaswanth",
+  openGraph: {
+    images: "/og-image.png",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+    creator: "@urstrulyyashu5",
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
