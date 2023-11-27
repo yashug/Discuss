@@ -9,8 +9,8 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Discuss App",
-  description: "Next.js 14 a simple Reddit clone",
+  title: "Discuss",
+  description: "a simple Reddit clone Next.js 14 + Prisma + NextAuth + Zod",
   keywords: [
     "Next.js",
     "React",

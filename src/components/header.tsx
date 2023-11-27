@@ -2,8 +2,9 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/icons";
 import { buttonVariants } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import HeaderAuth from "@/components/header-auth";
+import { SearchInput } from "@/components/search-input";
+import { Suspense } from "react";
 
 export default function Header() {
   return (
@@ -13,11 +14,9 @@ export default function Header() {
           <Icons.logo className="h-6 w-6" />
           <span className="hidden font-bold sm:inline-block">Discuss</span>
         </Link>
-        <Input
-          type="search"
-          placeholder="Search..."
-          className="sm:w-[300px] focus-visible:ring-offset-0"
-        />
+        <Suspense>
+          <SearchInput />
+        </Suspense>
         <div className="flex items-center gap-1">
           <Link
             href="https://github.com/yashug/Discuss"

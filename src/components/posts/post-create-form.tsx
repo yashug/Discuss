@@ -16,37 +16,41 @@ import { Textarea } from "@/components/ui/textarea";
 import FormButton from "@/components/common/form-button";
 import * as actions from "@/actions";
 
-export default function TopicCreateForm() {
-  const [formState, action] = useFormState(actions.createTopic, {
+interface PostCreateFormProps {
+  slug: string;
+}
+
+export default function PostCreateForm({ slug }: PostCreateFormProps) {
+  const [formState, action] = useFormState(actions.createPost.bind(null, slug), {
     errors: {},
   });
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="secondary">Create Topic</Button>
+        <Button variant="secondary">Create Post</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[475px]">
         <DialogHeader>
-          <DialogTitle>Create a Topic</DialogTitle>
+          <DialogTitle>Create a Post</DialogTitle>
         </DialogHeader>
         <form action={action}>
           <div className="grid gap-4 py-4">
             <div className="grid gap-2">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" name="name" autoFocus placeholder="Name" />
+              <Label htmlFor="title">Title</Label>
+              <Input id="title" name="title" autoFocus placeholder="Title" />
               <span className="text-red-400">
-                {formState.errors.name?.join(", ")}
+                {formState.errors.title?.join(", ")}
               </span>
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="description">Description</Label>
+              <Label htmlFor="content">Content</Label>
               <Textarea
-                id="description"
-                name="description"
-                placeholder="Describe your topic"
+                id="content"
+                name="content"
+                placeholder="Content"
               />
               <span className="text-red-400">
-                {formState.errors.description?.join(", ")}
+                {formState.errors.content?.join(", ")}
               </span>
             </div>
             <span className="text-red-400">

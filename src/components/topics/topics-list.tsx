@@ -8,7 +8,7 @@ export default async function TopicsList() {
 
   const renderedTopics = topics.map((topic) => (
     <Link href={paths.topicShow(topic.slug)} key={topic.id}>
-      <Badge variant="destructive">{topic.slug}</Badge>
+      <Badge variant="secondary">{topic.slug}</Badge>
     </Link>
   ));
 
