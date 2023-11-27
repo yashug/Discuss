@@ -4,6 +4,8 @@ import { Separator } from "@/components/ui/separator";
 import PostList from "@/components/posts/post-list";
 import { fetchTopPosts } from "@/db/queries/posts";
 
+export const revalidate = 10
+
 export default async function Home() {
   return (
     <section className="container grid grid-cols-4 gap-4 px-6 pt-8 md:pt-12">
